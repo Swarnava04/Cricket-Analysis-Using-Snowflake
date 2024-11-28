@@ -1,96 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cricket Analysis Project</title>
-</head>
-<body>
-    <h1>Cricket Analysis Project</h1>
+**Cricket Analysis Project**
 
-    <h2>📖 Overview</h2>
-    <p>
-        This project focuses on building a <b>data pipeline and analytics architecture</b> for cricket match data using <b>Snowflake</b>. 
-        The pipeline consists of multiple layers, starting from raw JSON data ingestion to clean, transformed datasets, 
-        and finally generating insightful dashboards.
-    </p>
+📖 Overview
 
-    <h2>🔧 Tools Used</h2>
-    <ul>
-        <li><b>Snowflake:</b> For data ingestion, processing, and analysis.</li>
-        <li><b>DBeaver:</b> For creating and visualizing ER diagrams.</li>
-    </ul>
+This project focuses on building a data pipeline and analytics architecture for cricket match data using Snowflake.
+The pipeline consists of multiple layers, starting from raw JSON data ingestion to clean, transformed datasets, and finally generating insightful dashboards.
 
-    <h2>📂 Repository Contents</h2>
-    <ul>
-        <li>
-            <b>json_files:</b> Contains raw JSON files, which serve as the source data for the <b>raw layer</b> in Snowflake.
-        </li>
-        <li>
-            <b>sql_files:</b> Includes SQL scripts for implementing the following layers:
-            <ul>
-                <li><b>Raw Layer:</b> Loading JSON data into staging tables.</li>
-                <li><b>Clean Layer:</b> Cleaning and standardizing the data.</li>
-                <li><b>Consumption Layer:</b> Finalizing data for analytics and dashboards.</li>
-            </ul>
-        </li>
-        <li>
-            <b>images:</b> Visual representations of the project, including:
-            <ul>
-                <li><b>ER diagrams</b> for database schema.</li>
-                <li><b>Table structures</b> for each layer.</li>
-                <li><b>Dashboards</b> showcasing the final analytical insights.</li>
-            </ul>
-        </li>
-    </ul>
+📂 Repository Contents
 
-    <h2>🏗️ Architecture</h2>
-    <h3>Data Pipeline Flow</h3>
-    <ol>
-        <li><b>Raw Layer:</b> Ingest raw JSON files.</li>
-        <li><b>Clean Layer:</b> Clean and transform data using recursive CTEs and joins.</li>
-        <li><b>Consumption Layer:</b> Add necessary aggregations and relationships.</li>
-        <li><b>Dashboarding:</b> Generate insights with tools like Power BI/Tableau (or equivalent).</li>
-    </ol>
-    <p>
-        <img src="images/data_pipeline_architecture.png" alt="Data Pipeline Architecture" width="600">
-    </p>
+1️⃣ json_files
+This folder contains raw JSON files, which serve as the source data for the raw layer in Snowflake.
 
-    <h3>Database Schema</h3>
-    <p>
-        <img src="images/er_diagram.png" alt="ER Diagram" width="600">
-    </p>
+2️⃣ sql_files
+This folder includes SQL scripts for implementing the following layers in the data pipeline:
 
-    <h2>🚀 Key Features</h2>
-    <ul>
-        <li><b>Recursive CTEs:</b> Handle missing date ranges for <code>date_dim</code>.</li>
-        <li><b>Dynamic Tasks:</b> Automate data ingestion and updates using Snowflake tasks.</li>
-        <li><b>Comprehensive Insights:</b> Analyze cricket match details, scores, and outcomes with structured dashboards.</li>
-    </ul>
+Raw Layer: Loading JSON data into staging tables.
 
-    <h2>🛠️ How to Use</h2>
-    <h3>Prerequisites</h3>
-    <ul>
-        <li>Set up a <b>Snowflake warehouse</b> and configure appropriate roles and privileges.</li>
-        <li>Clone the repository and upload JSON files into Snowflake using the provided SQL scripts.</li>
-    </ul>
+Clean Layer: Cleaning and standardizing the data.
 
-    <h3>Steps</h3>
-    <ol>
-        <li>Use <code>sql_files</code> to create tables and load data for each pipeline layer.</li>
-        <li>Visualize insights by integrating the <b>consumption layer</b> tables with your BI tool of choice.</li>
-    </ol>
+Consumption Layer: Finalizing data for analytics and dashboards.
 
-    <h2>📊 Sample Dashboard</h2>
-    <p>
-        <img src="images/dashboard_sample.png" alt="Dashboard Sample" width="600">
-    </p>
+3️⃣ images
 
-    <h2>📝 Notes</h2>
-    <ul>
-        <li>Recursive logic was implemented to populate the <code>date_dim</code> table dynamically for missing dates.</li>
-        <li>Snowflake tasks ensure the automation of data ingestion and processing.</li>
-        <li>The repository showcases a complete implementation of a cricket analysis pipeline.</li>
-    </ul>
-</body>
-</html>
+Visual representations of the project include:
+<img width="800" alt="particular_match_analysis" src="https://github.com/user-attachments/assets/8d56ff13-0b9a-48f4-81d3-76e8a1736987">
+
+![task_flow_diagram](https://github.com/user-attachments/assets/0cc2bea1-8eea-4ffc-9d56-49b60b34639d)
+
+![er_diagram_2](https://github.com/user-attachments/assets/5e14260c-08d7-4fe5-a09f-6829ee92b4a9)
+
+![player_clean_tbl](https://github.com/user-attachments/assets/03c50096-8ad5-46fa-86ca-dd93592ded02)
+
+
+🛠️ Tools
+
+Snowflake: Used for building and managing the data pipeline, including tasks and transformations.
+
+DBeaver: Utilized for creating and visualizing ER diagrams.
+
+🏗️ Architecture
+
+Data Pipeline Flow
+Internal/External Stage → Landing Layer → Raw Layer → Clean Layer → Consumption Layer → Visualization
+
+Database Schema
+Visualize the schema using the ER diagram provided in the images folder.
+
+🚀 Key Features
+
+Recursive CTEs: Handle missing date ranges for date_dim.
+
+Dynamic Tasks: Automate data ingestion and updates using Snowflake tasks.
+
+Comprehensive Insights: Analyze cricket match details, scores, and outcomes with structured dashboards.
+
+🛠️ How to Use
+
+Prerequisites
+
+Set up a Snowflake warehouse and configure appropriate roles and privileges.
+
+Clone the repository and upload JSON files into Snowflake using the provided SQL scripts.
+
+Steps
+
+Use sql_files to create tables and load data for each pipeline layer.
+
+Visualize insights by integrating the consumption layer tables with your BI tool of choice.
+
+📝 Notes
+
+1. Recursive logic was implemented to populate the date_dim table dynamically for missing dates.
+2. Snowflake tasks ensure the automation of data ingestion and processing.
+3. The repository showcases a complete implementation of a cricket analysis pipeline.
